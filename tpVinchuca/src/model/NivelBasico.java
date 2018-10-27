@@ -1,16 +1,25 @@
 package model;
 
-public class NivelBasico implements INivelDeConocimiento {
+import java.util.List;
+
+public class NivelBasico implements INivelConocimiento {
 
 	@Override
-	public String nivelDeVoloracion() {
+	public Integer nivelDeVoloracion() {
 		
-		return null;
+		return 1;
 	}
 
 	@Override
-	public INivelDeConocimiento evaluarse() {
-		return null;
+	public INivelConocimiento evaluarse(List muestras, List verificaciones) {
+		
+		if (muestras.size() >= 10 && verificaciones.size() >= 20)
+				
+		{ return new NivelExperto();}
+		else
+		{
+			return new NivelBasico();
+		}
 	}
 
 }

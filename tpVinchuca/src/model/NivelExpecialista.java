@@ -1,14 +1,16 @@
 package model;
 
-public class NivelExpecialista implements INivelDeConocimiento {
+import java.util.List;
+
+public class NivelExpecialista implements INivelConocimiento {
 
 	@Override
-	public String nivelDeVoloracion() {
-		return null;
+	public Integer nivelDeVoloracion() {
+		return 3;
 	}
 
 	@Override
-	public INivelDeConocimiento evaluarse() {
+	public INivelConocimiento evaluarse(List muestras, List verificacionese) {
 		return new NivelExpecialista();
 	}
 

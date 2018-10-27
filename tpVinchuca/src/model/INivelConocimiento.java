@@ -1,8 +1,12 @@
 package model;
 
-public interface INivelDeConocimiento {
+
+import java.util.ArrayList;
+import java.util.List;
+
+public interface INivelConocimiento {
 
 	
-	public String nivelDeVoloracion();
-	public INivelDeConocimiento evaluarse();
+	public Integer nivelDeVoloracion();
+	public INivelConocimiento evaluarse(List muestras, List verificaciones);
 }

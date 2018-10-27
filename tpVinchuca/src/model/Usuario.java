@@ -1,19 +1,21 @@
 package model;
-import java.awt.List;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Usuario {
 	private String alias;
-	private INivelDeConocimiento miNivel;
+	private INivelConocimiento miNivel;
 	
 	
-	public Usuario( String alias) {
+	public Usuario( String alias, INivelConocimiento nivel) {
 		this.alias = alias;
-		this.miNivel = new NivelBasico();
+		this.miNivel = nivel;
 	}
 
 	
-	public INivelDeConocimiento nivelDeConocimiento() {
-		return this.miNivel;
+	public INivelConocimiento nivelDeConocimiento(List muestras, List verificaciones) {
+		return this.miNivel.evaluarse(muestras, verificaciones);
 	}
 
 	
