@@ -9,7 +9,7 @@ public class NivelExpecialista implements INivelDeConocimiento {
 
 	@Override
 	public INivelDeConocimiento evaluarse() {
-		return null;
+		return new NivelExpecialista();
 	}
 
 }
