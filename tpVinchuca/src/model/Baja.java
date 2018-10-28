@@ -13,6 +13,7 @@ public class Baja implements Nivel {
 			muestra.baja();
 		} else if ( this.verificacionesIdistintas(muestra.getVerificaciones())) {
 			muestra.baja();
+			muestra.cambiarTipo("Ninguna");
 		}
 
 	}

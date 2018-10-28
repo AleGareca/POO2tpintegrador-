@@ -3,21 +3,20 @@ package model;
 import java.util.ArrayList;
 import java.util.Date;
 
-
 public class Muestra {
 	private String tipoVinchuca;
 	private Ubicacion ubicacion;
 	private Foto foto;
 	private String alias;
-	private ArrayList<Verificacion> validaciones;
+	private ArrayList<Verificacion> verificaciones;
 	private Nivel nivel;
 	private Date fecha;
 	private Aplicacion aplicacion;
 
-	public Muestra(/*Ubicacion ubicacion, Foto foto,*/String tipoVinchuca) {
-		//this.ubicacion = ubicacion;
-		//this.foto = foto;
-		this.tipoVinchuca= tipoVinchuca;
+	public Muestra(Ubicacion ubicacion, Foto foto, String tipoVinchuca) {
+		this.ubicacion = ubicacion;
+		this.foto = foto;
+		this.tipoVinchuca = tipoVinchuca;
 	}
 
 	public String getTipoDeVinchuca() {
@@ -36,18 +35,15 @@ public class Muestra {
 		this.nivel = new Media();
 	}
 
-	public void recivirValidacion(Verificacion v) {
-		this.validaciones.add(v);
+	/* Cuando una muestra recibe una verificaciones se modificac su nivel */
+	public void recibirVerificacion(Verificacion v) {
+		this.verificaciones.add(v);
 		this.nivel.verificarNivelPara(this);
 	}
 
+	// Retorna la cantidad de verificaciones
 	public int cantVerificaciones() {
-		return this.validaciones.size();
-	}
-
-	public void getNivel(Baja baja) {
-		this.nivel = new Baja();
-
+		return this.verificaciones.size();
 	}
 
 	/*
@@ -62,7 +58,7 @@ public class Muestra {
 	private boolean validacionesConMismoTipo() {
 		boolean res = false;
 
-		for (Verificacion v : this.validaciones) {
+		for (Verificacion v : this.verificaciones) {
 			res = this.tipoVinchuca == v.getTipo();
 			;
 		}
@@ -74,7 +70,7 @@ public class Muestra {
 	public ArrayList<String> aliasVerificacion() {
 
 		ArrayList<String> res = null;
-		for (Verificacion v : this.validaciones) {
+		for (Verificacion v : this.verificaciones) {
 			res.add(v.alias());
 		}
 		return res;
@@ -82,7 +78,7 @@ public class Muestra {
 
 	public ArrayList<Verificacion> getVerificaciones() {
 
-		return this.validaciones;
+		return this.verificaciones;
 	}
 
 	public void cambiarTipo(String unTipo) {
@@ -94,6 +90,20 @@ public class Muestra {
 		return this.aplicacion.hayAlgunExpertoConAlias(this.aliasVerificacion());
 	}
 
+	public String aliasDeExperto() {
+		return this.aplicacion.aliasDeExperto(this.aliasVerificacion());
+	}
 
+	public Verificacion buscarVerificacioPor(String unAlias) {
+
+		Verificacion res = null;
+		for (Verificacion v : this.verificaciones) {
+			if (v.alias() == unAlias) {
+				res = v;
+			}
+		}
+		return res;
+
+	}
 
 }

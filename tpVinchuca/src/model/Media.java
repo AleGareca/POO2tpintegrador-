@@ -6,29 +6,20 @@ public class Media implements Nivel {
 
 	@Override
 	public void verificarNivelPara(Muestra muestra) {
-		if(muestra.cantVerificaciones()==2 && muestra.validacionUnanime()) {
-			muestra.media();
-	
-		}else {if(muestra.cantVerificaciones()==3) {
-			muestra.cambiarTipo(this.tipoConLegitimidad(muestra.getVerificaciones()));
-			muestra.media();}
-		}
-		
+		this.validacionUnanime(muestra);
 	}
 
-	@SuppressWarnings("null")
-	private String tipoConLegitimidad(ArrayList<Verificacion> verificaciones) {
-		ArrayList<String> res = null;
-
-		for (Verificacion v : verificaciones) {
-			res.add(v.alias());
+	// recorre las verificaciones y compara los tipos. Si hay dos tipos con iguales
+	// el nivel se convierte en medio
+	private void validacionUnanime(Muestra muestra) {
+		ArrayList<Verificacion> verificaciones = muestra.getVerificaciones();
+		int num = verificaciones.size();
+		while (num < 0) {
+			if (verificaciones.get(num).getTipo() != verificaciones.get(num - 1).getTipo()) {
+				muestra.cambiarTipo(verificaciones.get(num).getTipo());
+				muestra.media();
+			}
 		}
-		return res.get(2);
-		
-		
-		
 	}
-
-	
 
 }

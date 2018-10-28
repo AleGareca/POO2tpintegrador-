@@ -29,9 +29,9 @@ public class Aplicacion {
 
 	private boolean hayAlgunExperto(ArrayList<Usuario> usuario) {
 		boolean res = false;
-
+		NivelExperto n = new NivelExperto(); 
 		for (Usuario u : usuarios) {
-			if (u.getConocimiento().getClass().getSimpleName() == "Experto") {
+			if (u.getConocimiento() == n) {
 				res = true;
 			}
 		}
@@ -42,4 +42,16 @@ public class Aplicacion {
 
 		return false;
 	}
+
+	public String aliasDeExperto(ArrayList<String> aliasVerificacion) {
+		NivelExperto n = new NivelExperto(); 
+		String res = null  ;
+		for (Usuario u : usuarios) {
+			if (u.getConocimiento() == n) {
+			res= u.alias();
+			}
+	}
+		return res;
+	}
 }
+
