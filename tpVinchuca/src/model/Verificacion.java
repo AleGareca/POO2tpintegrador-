@@ -15,4 +15,16 @@ public class Verificacion {
 			this.usuario = usuario;
 			this.fecha = new Date();
 		}
+
+
+		public String alias() {
+			
+			return usuario.alias();
+		}
+
+
+		public String getTipo() {
+			
+			return this.tipo;
+		}
 }

@@ -22,7 +22,11 @@ public class Usuario {
 	public String alias() {
 		return this.alias;
 	}
-	
-	
-	
+
+
+	public Object getConocimiento() {
+		
+		return this.miNivel;
+	}
+
 }
