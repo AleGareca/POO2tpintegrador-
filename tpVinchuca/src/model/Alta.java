@@ -6,7 +6,9 @@ public class Alta implements Nivel{
 	@Override
 	public void verificarNivelPara(Muestra muestra) {
 		if(muestra.hayExpertos()) {
-			muestra.alta();
+			Verificacion validacionExperto = muestra.buscarVerificacioPor(muestra.aliasDeExperto());		
+			muestra.cambiarTipo(validacionExperto.getTipo());	
+				muestra.alta();
 		}
 		
 	}
