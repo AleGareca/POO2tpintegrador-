@@ -33,4 +33,14 @@ public class Sistema {
 	public ArrayList<Muestra> muestrasACiertaDistanciaDe(Muestra muestra, double distancia) {
 		return muestra.muestrasACiertaDistancia(this.misMuestras, distancia);
 	}
+
+	public int canEnvios(Usuario usuario) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int cantReviciones(Usuario usuario) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

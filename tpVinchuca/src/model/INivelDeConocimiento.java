@@ -1,6 +1,7 @@
 package model;
 
 public interface INivelDeConocimiento {
-	INivelDeConocimiento nivelDeConocimiento();
+
+	INivelDeConocimiento calcularNivelDeConocimiento(Usuario usuario);
 
 }

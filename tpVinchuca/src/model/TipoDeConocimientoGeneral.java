@@ -2,12 +2,9 @@ package model;
 
 public class TipoDeConocimientoGeneral extends TipoDeConocimiento {
 	
-	public TipoDeConocimientoGeneral() {
-		this.nivelDeConocimiento = new NivelDeConocimientoBasico();
+	private INivelDeConocimiento nivelDeConocimiento;
+	
+	public INivelDeConocimiento getNivelDeConocimiento(Usuario usuario) {
+	return this.nivelDeConocimiento.calcularNivelDeConocimiento(usuario);
 	}
-
-	public NivelDeConocimiento getNivelDeConocimiento() {
-		return this.nivelDeConocimiento;
-	}
-
 }

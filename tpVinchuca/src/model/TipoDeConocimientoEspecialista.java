@@ -1,9 +1,11 @@
 package model;
 
-public class TipoDeConocimientoEspecialista extends ITipoDeConocimiento {
+public class TipoDeConocimientoEspecialista extends TipoDeConocimiento {
 	
-	public TipoDeConocimientoEspecialista() {
-		this.nivelDeConocimiento = new NivelDeConocimientoExperto();
+
+	public INivelDeConocimiento getNivelDeConocimiento(Usuario usuario) {
+		
+		return new NivelDeConocimientoExperto();
 	}
 
 }
