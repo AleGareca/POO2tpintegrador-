@@ -1,32 +1,21 @@
 package model;
-
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Date;
 
 public class Usuario {
 	private String alias;
-	private INivelConocimiento miNivel;
+	private TipoDeConocimiento tipoDeConocimiento;
 	
-	
-	public Usuario( String alias, INivelConocimiento nivel) {
+	public Usuario(String alias, TipoDeConocimiento tipoDeConocimiento) {
 		this.alias = alias;
-		this.miNivel = nivel;
+		this.tipoDeConocimiento = tipoDeConocimiento;
 	}
-
 	
-	public INivelConocimiento nivelDeConocimiento(List muestras, List verificaciones) {
-		return this.miNivel.evaluarse(muestras, verificaciones);
-	}
-
-	
-	public String alias() {
+	public String getAlias() {
 		return this.alias;
 	}
-
-
-	public Object getConocimiento() {
-		
-		return this.miNivel;
+	
+	public NivelDeConocimiento getNivelDeConocimiento() {
+		return this.tipoDeConocimiento.getNivelDeConocimiento(this);
 	}
-
+	
 }

@@ -1,30 +1,15 @@
 package model;
-
 import java.util.Date;
 
 public class Verificacion {
+	private Date fecha;
+	private Usuario autor;
+	private TipoDeImagen tipoDeImagen;
 	
-		private Usuario usuario;
-		private String tipo;
-		private Date fecha;
-		
-		
-		public Verificacion(String tipo, Usuario usuario)
-		{
-			this.tipo = tipo;
-			this.usuario = usuario;
-			this.fecha = new Date();
-		}
-
-
-		public String alias() {
-			
-			return usuario.alias();
-		}
-
-
-		public String getTipo() {
-			
-			return this.tipo;
-		}
+	public Verificacion(Date fecha, Usuario usuario, TipoDeImagen tipoDeImagen) {
+		this.fecha = fecha;
+		this.autor = usuario;
+		this.tipoDeImagen = tipoDeImagen;
+	}
+	
 }
