@@ -35,12 +35,23 @@ public class Sistema {
 	}
 
 	public int canEnvios(Usuario usuario) {
-		// TODO Auto-generated method stub
-		return 0;
+		int res=0;
+		for(Muestra m :this.misMuestras) {
+			if(m.getAlias()== usuario.getAlias()) {
+				res++;
+			}	
+		}
+				
+		return res;
 	}
 
 	public int cantReviciones(Usuario usuario) {
-		// TODO Auto-generated method stub
-		return 0;
+		int res=0;
+		for(Muestra m :this.misMuestras) {
+			if(m.hizoUnaRevicion(usuario)) {
+				res++;
+			}	
+		}
+		return res;
 	}
 }

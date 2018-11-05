@@ -11,5 +11,10 @@ public class Verificacion {
 		this.autor = usuario;
 		this.tipoDeImagen = tipoDeImagen;
 	}
+
+	public boolean hizoUnaRevicion(Usuario usuario) {
+		
+		return this.autor.getAlias()== usuario.getAlias();
+	}
 	
 }

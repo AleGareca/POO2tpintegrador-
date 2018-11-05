@@ -19,4 +19,4 @@ public class NivelDeConocimientoBasico implements INivelDeConocimiento {
 	
 
 
-}
+
